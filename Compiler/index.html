@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Compiler</title>
+
+
+
+    <script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+			
+		 $('#ajaxBtn').click(function(){
+			
+			$.ajax('https://pooriya007.pythonanywhere.com/', {
+				type: 'POST',  // http method
+				data: { code: document.getElementById("code").value,
+                        lang: document.getElementById("lang").value,
+                        inpt: document.getElementById("input").value },  // data to submit
+				success: function (data, status, xhr) {
+					document.getElementById("out").innerText = xhr.responseText;
+				},
+				error: function (jqXhr, textStatus, errorMessage) {
+                    document.getElementById("out").innerText = "SERVER ERROR";
+				}
+			});
+		});
+    });
+    </script>
+
+
+
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: monospace;
+        }
+        h1 {
+            font-size: 90px;
+            font-weight: 100;
+        }
+        #code{
+            width: 80%;
+            height: 300px;
+        }
+        #input{
+            width: 80%;
+            height: 100px;
+        }
+        #out{
+            font-size: 18px;
+        }
+        #lang{
+            text-align: center;
+            width: 150px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1>TWICE</h1>
+    <input type="text" value="" id="lang" placeholder="c cpp py java">
+    <br><br>
+    <textarea id="code" cols="30" rows="10"></textarea>
+    <br>
+    <textarea id="input" cols="30" rows="5"></textarea>
+    <br><br>
+    <input type="button" id="ajaxBtn" value="Send Ajax request" />
+    <br><br>
+    <p id="out">lorem</p>
+</body>
+
+</html>
