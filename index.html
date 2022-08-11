@@ -15,13 +15,19 @@
             margin: 0;
             padding: 0;
             border: 0;
-            font-family: monospace;
+            font-family: Win95;
             text-align: center;
-            cursor: none;
+            background-color: black;
         }
-        
+        @font-face {
+            font-family: Win95;
+            src: url('font/W95FA/w95fa.woff');
+        }
+
+
         #loading
         {
+            cursor: none;
             margin: auto;
             top: 0;
             background-color: rgb(191, 192, 130);
@@ -68,15 +74,26 @@
         }
 
 
+        @keyframes fade-out
+        {
+            0% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        @keyframes fade-in
+        {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
 
         #setup-page
         {
-            background-image: url('img/setup.jpg');
+            background-color: rgb(1,130,129);
+            /*background-image: url('img/setup.jpg');*/
             width: 100vw;
             height: 100vh;
             background-position: center;
             background-size:contain;
-            cursor: url('img/cursor.png'), auto;
         }
         #setup-page i
         {
@@ -103,8 +120,8 @@
 
             border-top: 3px solid rgb(238, 238, 238);
             border-left: 3px solid rgb(238, 238, 238);
-            border-bottom: 3px solid rgb(196, 196, 196);
-            border-right: 3px solid rgb(196, 196, 196);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
         }
         .window-header
         {
@@ -124,12 +141,13 @@
         {
             width: 100%;
             height: 30vh;
-            margin-top: ;
         }
         #pfp
         {
-            width: 4vw;
-            height: 4vw;
+            width: 10vh;
+            height: 10vh;
+            opacity: 0.95;
+            filter: grayscale(80%);
             background-image: url('img/pfp.png');
             background-repeat: no-repeat;
             background-position: center;
@@ -144,26 +162,45 @@
             display: block;
             position: absolute;
             width: 40vw;
-            margin-left: 7vw;
+            margin-left: 8vw;
             margin-top: 2.5vw;
             text-align: left;
-            font-size: 0.8vw;
+            font-size: 2vh;
         }
         #welcome-txt span
         {
-            font-size: 1vw;
+            font-size: 1.8vw;
         }
         #setup-window button
         {
-            width: 200px;
+            font-family: inherit;
+            font-size: 1.2vw;
+            width: 7vw;
+            height: 4vh;
+            position: absolute;
+            right: 2vw;
+            bottom: 2vh;
+            background-color: rgb(212, 212, 212);
+
+            border-top: 3px solid rgb(238, 238, 238);
+            border-left: 3px solid rgb(238, 238, 238);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
+        }
+        #setup-window button:active
+        {
+            border-bottom: 3px solid rgb(238, 238, 238);
+            border-right: 3px solid rgb(238, 238, 238);
+            border-top: 3px solid rgb(112, 112, 112);
+            border-left: 3px solid rgb(112, 112, 112);
         }
     </style>
 
 
 </head>
-<body>
+<body onload="load_setup()">
     
-    <div id="loading" style="display: none;">
+    <div id="loading" style="display: block;">
         <i>Pouria Afshari&copy;</i>
         <div id="windows-logo">        
             <h1>Windose<span style="color: white; font-weight: 100;">99</span></h1>
@@ -171,8 +208,8 @@
     </div>
 
 
-    <div id="setup-page">
-        <i>Setup</i>
+    <div id="setup-page" style="display: none;">
+        <!--i>Setup</i-->
         <div id="setup-window">
             <div class="window-header">
                 <h3>Welcome</h3>
@@ -182,7 +219,7 @@
                 <div id="pfp"></div>
 
                 <div id="welcome-txt">
-                    <span>Hello !</span> <br><br> welcome to my website bitchez !
+                    <span>Hello !</span> <br><br> <u>W</u>elcome to my website !
                 </div>
 
                 <button><u>C</u>ontinue</button>
@@ -192,4 +229,35 @@
     </div>
 
 </body>
+
+
+<script>
+
+    function load_setup() 
+    {
+        setTimeout(() => {
+
+            const loading_div = document.getElementById('loading');
+            const setup_div = document.getElementById('setup-page');
+
+            loading_div.style.animation = 'fade-out 0.3s';
+
+            loading_div.addEventListener('animationend', () => {
+                console.log('Animation ended');
+                loading_div.style.display = "none";
+                setup_div.style.display = "block";
+
+                setup_div.style.animation = 'fade-in 0.3s';
+                setup_div.addEventListener('animationend', () => {
+                    setup_div.style.display = "block";
+                });
+            });
+
+
+        }, 1500);
+    }
+
+</script>
+
+
 </html>
