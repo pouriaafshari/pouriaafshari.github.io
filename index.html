@@ -21,7 +21,7 @@
         }
         @font-face {
             font-family: Win95;
-            src: url('font/W95FA/w95fa.woff');
+            src: url('font/W95FA/W95FA.otf');
         }
 
 
@@ -86,7 +86,7 @@
         }
 
 
-        #setup-page
+        #windose
         {
             background-color: rgb(1,130,129);
             /*background-image: url('img/setup.jpg');*/
@@ -95,7 +95,7 @@
             background-position: center;
             background-size:contain;
         }
-        #setup-page i
+        #windose i
         {
             position: absolute;
             top: 1.5vh;
@@ -107,7 +107,7 @@
             font-family: Arial;
             text-shadow: 0px 0px 10px black;
         }
-        #setup-window
+        #start-window
         {
             width: 50vw;
             height: 500px;
@@ -171,7 +171,7 @@
         {
             font-size: 1.8vw;
         }
-        #setup-window button
+        #start-window button
         {
             font-family: inherit;
             font-size: 1.2vw;
@@ -187,20 +187,112 @@
             border-bottom: 3px solid rgb(112, 112, 112);
             border-right: 3px solid rgb(112, 112, 112);
         }
-        #setup-window button:active
+        #start-window button:active
         {
             border-bottom: 3px solid rgb(238, 238, 238);
             border-right: 3px solid rgb(238, 238, 238);
             border-top: 3px solid rgb(112, 112, 112);
             border-left: 3px solid rgb(112, 112, 112);
         }
+        
+        #taskbar
+        {
+            background-color: rgb(212, 212, 212);
+            width: 100%;
+            height: 4vh;
+            position: absolute;
+            bottom: 0;
+            border-top: 3px solid rgb(238, 238, 238);
+        }
+        #start-button
+        {
+            width: 70px;
+            height: 70%;
+            background-color: rgb(212, 212, 212);
+            border-top: 3px solid rgb(238, 238, 238);
+            border-left: 3px solid rgb(238, 238, 238);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            transform: translateY(-50%);
+        }
+        #start-button img
+        {
+            width: 25px;
+            position: absolute;
+            left: 2px;
+            height: 25px;
+            top: -1px;
+            display: inline;
+        }
+        #start-button span
+        {
+            position: absolute;
+            display: inline;
+            font-size: 20px;
+            right: 2px;
+            top: -1px;
+            font-weight: 600;
+        }
+        #clock
+        {
+            width: 80px;
+            height: 70%;
+            background-color: rgb(212, 212, 212);
+            border-bottom: 2px solid rgb(238, 238, 238);
+            border-right: 2px solid rgb(238, 238, 238);
+            border-top: 2px solid rgb(159, 159, 159);
+            border-left: 2px solid rgb(159, 159, 159);
+            position: absolute;
+            top: 48%;
+            right: 4px;
+            transform: translateY(-50%);
+        }
+        #clock span
+        {
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            margin: auto;
+            left: 0;
+            right: 0;
+            font-size: 15px;
+        }
+
+        #desktop
+        {
+            width: 100%;
+            height: auto;
+            margin: auto;
+            padding-top: 10px;
+        }
+        .icon
+        {
+            width: 70px;
+            height: 65px;
+            position: relative;
+            left: 10px;
+            padding-top: 8px;
+            display: block;
+            margin-top: 5px;
+        }
+        .icon p
+        {
+            color: white;
+            font-weight: 1;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
     </style>
 
 
 </head>
-<body onload="load_setup()">
+<body onload="load_start()">
     
-    <div id="loading" style="display: block;">
+    <div id="loading" style="display: none;">
         <i>Pouria Afshari&copy;</i>
         <div id="windows-logo">        
             <h1>Windose<span style="color: white; font-weight: 100;">99</span></h1>
@@ -208,9 +300,9 @@
     </div>
 
 
-    <div id="setup-page" style="display: none;">
-        <!--i>Setup</i-->
-        <div id="setup-window">
+    <div id="windose" style="display: block;">
+        <!--i>start</i-->
+        <div id="start-window">
             <div class="window-header">
                 <h3>Welcome</h3>
             </div>
@@ -222,9 +314,31 @@
                     <span>Hello !</span> <br><br> <u>W</u>elcome to my website !
                 </div>
 
-                <button><u>C</u>ontinue</button>
+                <button><u>O</u>K</button>
             </div>
-            
+        </div>
+
+        <div id="taskbar">
+            <div id="start-button">
+                <img src="img/windose.png" alt="">
+                <span>Start</span>
+            </div>
+
+            <div id="clock">
+                <span id="time-text">6:15 PM</span>
+            </div>
+        </div>
+
+        <div id="desktop">
+            <div class="icon">
+                <img src="img/notepad.png">
+                <p>Skills</p>
+            </div>
+
+            <div class="icon">
+                <img src="img/folder.png">
+                <p>Projects</p>
+            </div>
         </div>
     </div>
 
@@ -233,23 +347,23 @@
 
 <script>
 
-    function load_setup() 
+    function load_start() 
     {
         setTimeout(() => {
 
             const loading_div = document.getElementById('loading');
-            const setup_div = document.getElementById('setup-page');
+            const start_div = document.getElementById('windose');
 
             loading_div.style.animation = 'fade-out 0.3s';
 
             loading_div.addEventListener('animationend', () => {
                 console.log('Animation ended');
                 loading_div.style.display = "none";
-                setup_div.style.display = "block";
+                start_div.style.display = "block";
 
-                setup_div.style.animation = 'fade-in 0.3s';
-                setup_div.addEventListener('animationend', () => {
-                    setup_div.style.display = "block";
+                start_div.style.animation = 'fade-in 0.3s';
+                start_div.addEventListener('animationend', () => {
+                    start_div.style.display = "block";
                 });
             });
 
@@ -257,6 +371,27 @@
         }, 1500);
     }
 
+
+    //Clock 
+
+    setInterval(() => 
+    {
+        const now = new Date();
+        const time_text = document.getElementById('time-text');
+        var text = "";
+
+        text = now.getHours().toString() + ':' + now.getMinutes().toString();
+        if (now.getHours() > 12) 
+        {
+            text += " PM";
+        }
+        else
+        {
+            text += " AM";
+        }
+
+        time_text.innerText = text;
+    }, 1000);
 </script>
 
 
