@@ -18,6 +18,7 @@
             font-family: Win95;
             text-align: center;
             background-color: black;
+            overflow: hidden;
         }
         @font-face {
             font-family: Win95;
@@ -125,7 +126,7 @@
             margin-top: 4px;
             font-size: 14px;
         }
-        #x-button
+        .x-button
         {
             display: inline;
             position: absolute;
@@ -141,14 +142,14 @@
             text-align: center;
 
         }
-        #x-button:active
+        .x-button:active
         {
             border-bottom: 2px solid rgb(238, 238, 238);
             border-right: 2px solid rgb(238, 238, 238);
             border-top: 2px solid rgb(112, 112, 112);
             border-left: 2px solid rgb(112, 112, 112);
         }
-        #x-button span
+        .x-button span
         {
             font-weight: 100;
             position: absolute;
@@ -234,36 +235,142 @@
             border-top: 3px solid rgb(112, 112, 112);
             border-left: 3px solid rgb(112, 112, 112);
         }
-        
+
+        #aboutme-window
+        {
+            width: 480px;
+            padding-bottom: 10px;
+            background-color: rgb(212, 212, 212);
+            margin: auto;
+            left: 0;
+            right: 0;
+            position: absolute;
+            top: 100px;
+            border-top: 3px solid rgb(238, 238, 238);
+            border-left: 3px solid rgb(238, 238, 238);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
+        }
+        #aboutme-body
+        {
+            width: 47vw;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-align: left;
+            line-height: 25px;
+        }
+
+        #projects-window
+        {
+            width: 48vw;
+            height: fit-content;
+            padding-bottom: 35px;
+            background-color: rgb(212, 212, 212);
+            margin: auto;
+            left: 0;
+            right: 0;
+            position: absolute;
+            top: 100px;
+            border-top: 3px solid rgb(238, 238, 238);
+            border-left: 3px solid rgb(238, 238, 238);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
+        }
+        #projects-body
+        {
+            width: 47vw;
+            height: 64vh;
+            margin: auto;
+            margin-top: 3px;
+            background-color: rgb(212, 212, 212);
+            border-bottom: 3px solid rgb(238, 238, 238);
+            border-right: 3px solid rgb(238, 238, 238);
+            border-top: 3px solid rgb(112, 112, 112);
+            border-left: 3px solid rgb(112, 112, 112);
+            text-align: left;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .project
+        {
+            display: flex;
+            width: 98%;
+            height: 150px;
+            margin: auto;
+            margin-top: 5px;
+            border-bottom: 3px solid rgb(238, 238, 238);
+            border-right: 3px solid rgb(238, 238, 238);
+            border-top: 3px solid rgb(112, 112, 112);
+            border-left: 3px solid rgb(112, 112, 112);
+            background-color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+        .project-select
+        {
+            background-color: rgb(13, 40, 156);
+            filter: contrast(0.6) brightness(0.8);
+        }
+        .project span
+        {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            margin: 5px;
+        }
+        .project img
+        {
+            width: auto;
+            height: auto;
+            position: relative;
+            margin: 5px;
+        }
+        .projects-footer
+        {
+            height: 20px;
+            text-align: left;
+            padding-left: 5px;
+            display: inline-block;
+            background-color: rgb(212, 212, 212);
+            left: 4px;
+            right: 4px;
+            position: absolute;
+            margin-top: 5px;
+            background-color: rgb(212, 212, 212);
+            border-bottom: 3px solid rgb(238, 238, 238);
+            border-right: 3px solid rgb(238, 238, 238);
+            border-top: 3px solid rgb(112, 112, 112);
+            border-left: 3px solid rgb(112, 112, 112);
+        }
+
         #skills-window
         {
-            width: 50vw;
+            width: 40vw;
             height: 500px;
             background-color: rgb(212, 212, 212);
             margin: auto;
             left: 0;
             right: 0;
             position: absolute;
-            top: 20vh;
+            top: 100px;
             border-top: 3px solid rgb(238, 238, 238);
             border-left: 3px solid rgb(238, 238, 238);
             border-bottom: 3px solid rgb(112, 112, 112);
             border-right: 3px solid rgb(112, 112, 112);
         }
-        #tools-bar
+        .tools-bar
         {
-            width: 50vw;
+            width: 40vw;
             height: 20px;
             text-align: left;
         }
-        #tools-bar div
+        .tools-bar div
         {
             display: inline-block;
             padding: 2px;
             padding-left: 10px;
             padding-right: 10px;
         }
-        #tools-bar div:hover
+        .tools-bar div:hover
         {
             background-color: rgb(13, 40, 156);
             color: white;
@@ -271,7 +378,7 @@
         }
         #skills-body
         {
-            width: 49vw;
+            width: 39vw;
             height: 440px;
             margin: auto;
             margin-top: 3px;
@@ -311,6 +418,14 @@
             left: 4px;
             transform: translateY(-50%);
         }
+        .start-button-open
+        {
+            background-color: rgb(200, 200, 200)!important;
+            border-bottom: 3px solid rgb(238, 238, 238)!important;
+            border-right: 3px solid rgb(238, 238, 238)!important;
+            border-top: 3px solid rgb(112, 112, 112)!important;
+            border-left: 3px solid rgb(112, 112, 112)!important;
+        }
         #start-button img
         {
             width: 25px;
@@ -328,6 +443,37 @@
             right: 2px;
             top: -1px;
             font-weight: 600;
+        }
+        #start-button-window
+        {
+            width: 240px;
+            height: 350px;
+            background-color: red;
+            position: absolute;
+            display: none;
+            z-index: 2;
+            bottom: 40px;
+            left: 2px;
+            background-color: rgb(212, 212, 212);
+            border-top: 3px solid rgb(238, 238, 238);
+            border-left: 3px solid rgb(238, 238, 238);
+            border-bottom: 3px solid rgb(112, 112, 112);
+            border-right: 3px solid rgb(112, 112, 112);
+        }
+        #start-button-window span
+        {
+            display: block;
+            height: 100%;
+            width: 50px;
+            background-color: rgb(186, 186, 186);
+            color: rgb(212, 212, 212);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 40px;
+            text-align: left;
+            font-family: sans-serif;
+            font-weight: bold;
+            letter-spacing: -3px;
         }
 
         #tabs
@@ -412,7 +558,7 @@
             left: 10px;
             padding-top: 8px;
             display: block;
-            margin-top: 5px;
+            margin-top: 8px;
         }
         .icon img
         {
@@ -427,11 +573,28 @@
             letter-spacing: 1px;
             margin-top: 5px;
         }
+        .highlight-icon p
+        {
+            background-color: rgb(13, 40, 156);
+        }
+        .highlight-icon img
+        {
+            filter: contrast(0.6) brightness(0.8);
+        }
+
+
+        @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        .project img
+        {
+            display: none;
+        }
+        }
     </style>
 
 
 </head>
-<body onload="load_start()">
+<body onload="load_start()" onclick="RemoveHighlights()">
     
     <div id="loading" style="display: none;">
         <i>Pouria Afshari&copy;</i>
@@ -443,22 +606,18 @@
 
     <div id="windose" style="display: block;">
 
-        <div id="skills-window">
-            <div class="window-header">
-                <h3>Skills</h3>
-                <button id="x-button" onclick="CloseSkills()"><span>X</span></button>
+        <div id="aboutme-window">
+            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+                <h3>About Me</h3>
+                <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
             </div>
-
-            <div id="tools-bar">
-                <div><u>F</u>ile</div>
-                <div><u>E</u>dit</div>
-                <div><u>S</u>earch</div>
-                <div><u>H</u>elp</div>
-            </div>
-
-            <div id="skills-body">
-                <p>Web development : <br><br> HTML <br> CSS <br> JavaScript <br> Python (flask) <br> MYSQL <br><br>Programming : <br><br>C <br>C++<br>Java<br>Unity 3D (C#)<br><br> Other :<br><br>English (IELTS 6.5)<br>Linux<br>GIT
-                </p>
+    
+            <div id="aboutme-body">
+                <b style="font-size: 24px;">Pouria Afshari</b><br><br>
+                Phone: +36 30 413 2954 <br>
+                Address: Debrecen, Hungary <br>
+                Email: pooriyaafshari81@gmail.com<br>
+                Education: ComputerScience BSc <a href="https://www.edu.unideb.hu/" target="_blank">University of Debrecen</a> (2021 - 2024)
             </div>
         </div>
 
@@ -480,8 +639,12 @@
             </div>
         </div-->
 
+        <div id="start-button-window" class="start-button-window-trigger">
+            <span class="start-button-window-trigger">&nbsp;&nbsp;Windose99</span>
+        </div>
+
         <div id="taskbar">
-            <div id="start-button">
+            <div id="start-button" onclick="StartButtonOpen()">
                 <img src="img/windose.png" alt="">
                 <span>Start</span>
             </div>
@@ -500,27 +663,109 @@
         </div>
 
         <div id="desktop">
-            <div class="icon">
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/about.png">
                 <p>About Me</p>
             </div>
 
-            <div class="icon">
+            <div class="icon highlight-icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/notepad.png">
                 <p>Skills</p>
             </div>
 
-            <div class="icon">
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/folder.png">
                 <p>Projects</p>
             </div>
 
-            <div class="icon">
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
+                <img src="img/resume.png">
+                <p>Resume (PDF)</p>
+            </div>
+
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/github.png">
-                <p>github</p>
+                <p>Github</p>
             </div>
         </div>
     </div>
+
+
+
+    <!--  BLUE PRINTS  -->
+
+    <div id="skills-bp" style="display: none;">
+
+        <div id="skills-window">
+            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+                <h3>Skills</h3>
+                <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
+            </div>
+    
+            <div class="tools-bar">
+                <div><u>F</u>ile</div>
+                <div><u>E</u>dit</div>
+                <div><u>S</u>earch</div>
+                <div><u>H</u>elp</div>
+            </div>
+    
+            <div id="skills-body">
+                <p>Web development : <br><br> HTML <br> CSS <br> JavaScript <br> Python (flask) <br> MYSQL <br><br>Programming : <br><br>C <br>C++<br>Java<br>Unity 3D (C#)<br><br> Other :<br><br>English (IELTS 6.5)<br>Linux<br>GIT
+                </p>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div id="projects-bp" style="display: none;">
+    
+        <div id="projects-window">
+            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+                <h3>Projects</h3>
+                <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
+            </div>
+    
+            <div class="tools-bar">
+                <div><u>F</u>ile</div>
+                <div><u>E</u>dit</div>
+                <div><u>S</u>earch</div>
+                <div><u>H</u>elp</div>
+            </div>
+    
+            <div id="projects-body">
+                <div class="project" onclick="ProjectSelect(this)">
+                    <span>Sample Project File</span>
+                    <img src="img/tst.jpg">
+                </div>
+            </div>
+        
+            <div class="projects-footer">6 items</div>
+        </div>
+    
+    </div>
+
+
+    <div id="aboutme-bp" style="display: none;">
+    
+        <div id="aboutme-window">
+            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+                <h3>About Me</h3>
+                <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
+            </div>
+    
+            <div id="aboutme-body">
+                <b style="font-size: 24px;">Pouria Afshari</b><br><br>
+                Phone: +36 30 413 2954 <br>
+                Address: Debrecen, Hungary <br>
+                Email: pooriyaafshari81@gmail.com<br>
+                Education: ComputerScience BSc <a href="https://www.edu.unideb.hu/" target="_blank">University of Debrecen</a> (2021 - 2024)
+            </div>
+        </div>
+    
+    </div>
+    
 
 </body>
 
@@ -529,7 +774,8 @@
 
     function load_start() 
     {
-        setTimeout(() => {
+        setTimeout(() => 
+        {
 
             const loading_div = document.getElementById('loading');
             const start_div = document.getElementById('windose');
@@ -582,9 +828,129 @@
     {
         document.getElementById("start-window").remove();
     }
-    function CloseSkills() 
+    function CloseWindow(elem) 
     {
-        document.getElementById("skills-window").remove();
+        elem.parentElement.parentElement.remove();
+    }
+
+
+    // Open window (Icon function)
+
+    function RemoveHighlights() {
+        for (let i = 0; i < 5; i++) {
+            document.getElementById('desktop').getElementsByTagName('div')[i].classList.remove('highlight-icon');       
+        }
+    }
+    function HighlightIcon(elem) 
+    {
+        RemoveHighlights();
+        setTimeout(() => 
+        {
+            elem.classList.add('highlight-icon');
+        }, 50);
+    }
+    function OpenWindow(elem) 
+    {
+        if (elem.children[1].innerText == "About Me")
+        {
+            const SkillsWindowBP = document.getElementById("aboutme-bp");
+            const Desktop = document.getElementById("windose");
+
+            Desktop.innerHTML += SkillsWindowBP.innerHTML;
+        }
+        if (elem.children[1].innerText == "Skills")
+        {
+            const SkillsWindowBP = document.getElementById("skills-bp");
+            const Desktop = document.getElementById("windose");
+
+            Desktop.innerHTML += SkillsWindowBP.innerHTML;
+        }
+        if (elem.children[1].innerText == "Projects")
+        {
+            const SkillsWindowBP = document.getElementById("projects-bp");
+            const Desktop = document.getElementById("windose");
+
+            Desktop.innerHTML += SkillsWindowBP.innerHTML;
+        }
+        if (elem.children[1].innerText == "Github")
+        {
+            window.open("https://github.com/pouriaafshari", "_blank");
+        }
+    }
+
+    function MouseMove(event) {
+        console.log(event.clientX);
+    }
+
+
+    // Move Window Function
+
+    var mouseDown = 0;
+    var CanMove = 0;
+    var WindowElement;
+    var FirstMousePosX = 0;
+    var FirstMousePosY = 0;
+    var CurrentX = 0;
+    var CurrentY = 0;
+
+    function MoveWindow(elem) {
+        CanMove = 1;
+        WindowElement = elem;
+    }
+    function DontMoveWindow() {
+        //CanMove = 0;
+    }
+
+    document.body.onmousedown = function()
+    { 
+        const matrix = new DOMMatrixReadOnly(window.getComputedStyle(WindowElement.parentElement).transform);
+        CurrentX = matrix.m41;
+        CurrentY = matrix.m42;
+
+        mouseDown = 1;
+        FirstMousePosX = (event).clientX;
+        FirstMousePosY = (event).clientY;
+    }
+    document.body.onmouseup = function() 
+    {
+        mouseDown = 0;
+        CanMove = 0;
+    }
+
+    document.onmousemove = function(e)
+    {
+        if (CanMove == 1 && mouseDown == 1)
+        {
+            WindowElement.parentElement.style.transform = 
+                "translate(" + ((e||event).clientX - FirstMousePosX + CurrentX).toString() + "px ,"
+                + ((e||event).clientY - FirstMousePosY + CurrentY).toString()+"px)";
+
+        }
+    }
+
+
+    function ProjectSelect(elem) 
+    {
+        //elem.classList.add('project-select');
+    }
+
+    document.body.addEventListener('click', (e) => {
+        e = e || window.event;
+        var target = e.target || e.srcElement,
+        text = target.textContent || target.innerText;
+        if (!target.classList.contains('start-button-window-trigger')) 
+        {
+            document.getElementById('start-button').classList.remove('start-button-open');
+            document.getElementById('start-button-window').style.display = 'none';
+        }
+    }, true);
+    function StartButtonOpen() 
+    {
+        setTimeout(() =>
+        {
+            document.getElementById('start-button').classList.add('start-button-open');
+            document.getElementById('start-button-window').style.display = 'inline';
+        }, 20);
     }
 </script>
 
