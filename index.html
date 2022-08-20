@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/computer.png">
     <title>Pouria Afshari</title>
 
 
@@ -19,6 +20,13 @@
             text-align: center;
             background-color: black;
             overflow: hidden;
+            
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
         }
         @font-face {
             font-family: Win95;
@@ -89,6 +97,7 @@
 
         #windose
         {
+            position: absolute;
             background-color: rgb(1,130,129);
             /*background-image: url('img/setup.jpg');*/
             width: 100vw;
@@ -166,11 +175,9 @@
         }
         #pfp
         {
-            width:60px;
-            height: 60px;
-            opacity: 0.95;
-            filter: grayscale(80%);
-            background-image: url('img/pfp.png');
+            width:40px;
+            height: 40px;
+            background-image: url('img/warning.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -183,10 +190,10 @@
         {
             display: inline;
             vertical-align: top;
-            top: 33px;
+            top: 25px;
             font-size: 16px;
             font-weight: 100;
-            left: 100px;
+            left: 70px;
             position: absolute;
         }
         #welcome-txt
@@ -201,7 +208,7 @@
             margin: auto;
             margin-top: 10px;
             width: 80%;
-            height: 200px;
+            height: fit-content;
             text-align: left;
             padding: 5px;
             font-size: 14px;
@@ -238,14 +245,14 @@
 
         #aboutme-window
         {
-            width: 480px;
+            width: 40vw;
             padding-bottom: 10px;
             background-color: rgb(212, 212, 212);
             margin: auto;
             left: 0;
             right: 0;
             position: absolute;
-            top: 100px;
+            top: 15%;
             border-top: 3px solid rgb(238, 238, 238);
             border-left: 3px solid rgb(238, 238, 238);
             border-bottom: 3px solid rgb(112, 112, 112);
@@ -253,11 +260,12 @@
         }
         #aboutme-body
         {
-            width: 47vw;
+            width: 39vw;
             margin-top: 10px;
             margin-left: 10px;
             text-align: left;
             line-height: 25px;
+            font-size: 2.3vh;
         }
 
         #projects-window
@@ -270,7 +278,7 @@
             left: 0;
             right: 0;
             position: absolute;
-            top: 100px;
+            top: 15%;
             border-top: 3px solid rgb(238, 238, 238);
             border-left: 3px solid rgb(238, 238, 238);
             border-bottom: 3px solid rgb(112, 112, 112);
@@ -305,7 +313,7 @@
             background-color: rgb(255, 255, 255);
             cursor: pointer;
         }
-        .project-select
+        .project:active
         {
             background-color: rgb(13, 40, 156);
             filter: contrast(0.6) brightness(0.8);
@@ -345,13 +353,13 @@
         #skills-window
         {
             width: 40vw;
-            height: 500px;
+            height: 69vh;
             background-color: rgb(212, 212, 212);
             margin: auto;
             left: 0;
             right: 0;
             position: absolute;
-            top: 100px;
+            top: 15%;
             border-top: 3px solid rgb(238, 238, 238);
             border-left: 3px solid rgb(238, 238, 238);
             border-bottom: 3px solid rgb(112, 112, 112);
@@ -378,9 +386,13 @@
         }
         #skills-body
         {
-            width: 39vw;
-            height: 440px;
-            margin: auto;
+            width: auto;
+            height: auto;
+            position: absolute;
+            bottom: 5px;
+            top: 42px;
+            left: 2px;
+            right: 2px;
             margin-top: 3px;
             background-color: rgb(255, 255, 255);
             border-bottom: 3px solid rgb(238, 238, 238);
@@ -388,6 +400,7 @@
             border-top: 3px solid rgb(112, 112, 112);
             border-left: 3px solid rgb(112, 112, 112);
             text-align: left;
+            font-size: 2.5vh;
         }
         #skills-body p
         {
@@ -417,6 +430,10 @@
             top: 50%;
             left: 4px;
             transform: translateY(-50%);
+        }
+        #start-button:hover
+        {
+            cursor: pointer;
         }
         .start-button-open
         {
@@ -448,7 +465,6 @@
         {
             width: 240px;
             height: 350px;
-            background-color: red;
             position: absolute;
             display: none;
             z-index: 2;
@@ -464,7 +480,7 @@
         {
             display: block;
             height: 100%;
-            width: 50px;
+            width: 45px;
             background-color: rgb(186, 186, 186);
             color: rgb(212, 212, 212);
             writing-mode: vertical-rl;
@@ -475,6 +491,41 @@
             font-weight: bold;
             letter-spacing: -3px;
         }
+        #start-window-container
+        {
+            width: 195px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0%;
+        }
+        .start-window-icon
+        {
+            width: 100%;
+            height: 50px;
+            text-align: left;
+        }
+        .start-window-icon:hover
+        {
+            background-color: rgb(13, 40, 156);
+            cursor: pointer;
+        }
+        .start-window-icon img
+        {
+            display: inline-block;
+            position: relative;
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 30px;
+        }
+        .start-window-icon p
+        {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 8px;
+            margin-top: 15px;
+            font-size: 2.3vh;
+        }
 
         #tabs
         {
@@ -482,7 +533,7 @@
             display: flex;
             left: 85px;
             right: 95px;
-            top: 2px;
+            top: 3px;
             width: auto;
             height: 22px;
             text-align: left;
@@ -490,8 +541,9 @@
         }
         .tab
         {
-            width: 180px;
+            width: 12vw;
             height: 100%;
+            margin-left: 2px;
             position: relative;
             display: inline-block;
             background-color: rgb(212, 212, 212);
@@ -548,22 +600,21 @@
             width: 100%;
             height: auto;
             margin: auto;
-            padding-top: 10px;
         }
         .icon
         {
             width: 70px;
-            height: 65px;
+            height: 8vh;
             position: relative;
             left: 10px;
-            padding-top: 8px;
+            padding-top: 2vh;
             display: block;
-            margin-top: 8px;
+            margin-top: 3vh;
         }
         .icon img
         {
-            width: 32px;
-            height: 32px;
+            width: 5vh;
+            height: 5vh;
         }
         .icon p
         {
@@ -596,7 +647,7 @@
 </head>
 <body onload="load_start()" onclick="RemoveHighlights()">
     
-    <div id="loading" style="display: none;">
+    <div id="loading">
         <i>Pouria Afshari&copy;</i>
         <div id="windows-logo">        
             <h1>Windose<span style="color: white; font-weight: 100;">99</span></h1>
@@ -604,43 +655,44 @@
     </div>
 
 
-    <div id="windose" style="display: block;">
+    <div id="windose" style="display: none;">
 
-        <div id="aboutme-window">
-            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
-                <h3>About Me</h3>
-                <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
-            </div>
-    
-            <div id="aboutme-body">
-                <b style="font-size: 24px;">Pouria Afshari</b><br><br>
-                Phone: +36 30 413 2954 <br>
-                Address: Debrecen, Hungary <br>
-                Email: pooriyaafshari81@gmail.com<br>
-                Education: ComputerScience BSc <a href="https://www.edu.unideb.hu/" target="_blank">University of Debrecen</a> (2021 - 2024)
-            </div>
-        </div>
-
-
-        <!--div id="start-window">
-            <div class="window-header">
+        <div id="start-window" onclick="MoveToTop(this)">
+            <div class="window-header" onmouseenter="MoveWindow(this)">
                 <h3>Welcome</h3>
-                <button id="x-button" onclick="CloseWelcome()"><span>X</span></button>
+                <button class="x-button" onclick="CloseWelcome()"><span>X</span></button>
             </div>
 
             <div id="welcome-body">
                 <div id="pfp"></div> <h4>Please read the following message.</h4>
 
                 <div id="welcome-txt">
-                    <span>Hello, welcome to my website</span>
+                    <span>Hi, I'm Pouria.<br><br>I'm a Frontend developer and I love what I do.<br><br>I like to code things from scratch, and enjoy bringing ideas to life in the browser.<br><br>I made this website, because I like to challenge myself and I didn't want a simple and ordinary portfolio.<br></span>
                 </div>
 
                 <button onclick="CloseWelcome()"><u>O</u>K</button>
             </div>
-        </div-->
+        </div>
 
         <div id="start-button-window" class="start-button-window-trigger">
             <span class="start-button-window-trigger">&nbsp;&nbsp;Windose99</span>
+            <div id="start-window-container" class="start-button-window-trigger">
+                <div class="start-window-icon" onclick="OpenWindow(this)">
+                    <img src="img/about.png">
+                    <p><u>A</u>bout Me</p>
+                </div>
+
+                <div class="start-window-icon" onclick="OpenWindow(this)">
+                    <img src="img/notepad.png">
+                    <p><u>S</u>kills</p>
+                </div>
+
+                <div class="start-window-icon" onclick="OpenWindow(this)">
+                    <img src="img/folder.png">
+                    <p><u>P</u>rojects</p>
+                </div>
+                
+            </div>
         </div>
 
         <div id="taskbar">
@@ -651,7 +703,7 @@
             
 
             <div id="tabs">
-                <div class="tab">
+                <div class="tab" id="welcome-tab">
                     <img src="img/system.png" alt="">
                     <span>Welcome</span>
                 </div>
@@ -668,7 +720,7 @@
                 <p>About Me</p>
             </div>
 
-            <div class="icon highlight-icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/notepad.png">
                 <p>Skills</p>
             </div>
@@ -696,8 +748,8 @@
 
     <div id="skills-bp" style="display: none;">
 
-        <div id="skills-window">
-            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+        <div id="skills-window" onclick="MoveToTop(this)">
+            <div class="window-header" onmouseenter="MoveWindow(this)">
                 <h3>Skills</h3>
                 <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
             </div>
@@ -721,8 +773,8 @@
 
     <div id="projects-bp" style="display: none;">
     
-        <div id="projects-window">
-            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+        <div id="projects-window" onclick="MoveToTop(this)">
+            <div class="window-header" onmouseenter="MoveWindow(this)">
                 <h3>Projects</h3>
                 <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
             </div>
@@ -749,8 +801,8 @@
 
     <div id="aboutme-bp" style="display: none;">
     
-        <div id="aboutme-window">
-            <div class="window-header" onmouseenter="MoveWindow(this)" onmouseleave="DontMoveWindow()">
+        <div id="aboutme-window" onclick="MoveToTop(this)">
+            <div class="window-header" onmouseenter="MoveWindow(this)">
                 <h3>About Me</h3>
                 <button class="x-button" onclick="CloseWindow(this)"><span>X</span></button>
             </div>
@@ -759,11 +811,32 @@
                 <b style="font-size: 24px;">Pouria Afshari</b><br><br>
                 Phone: +36 30 413 2954 <br>
                 Address: Debrecen, Hungary <br>
-                Email: pooriyaafshari81@gmail.com<br>
+                Email: <a target="_blank" href="mailto:pooriyaafshari81@gmail.com">pooriyaafshari81@gmail.com<a><br>
                 Education: ComputerScience BSc <a href="https://www.edu.unideb.hu/" target="_blank">University of Debrecen</a> (2021 - 2024)
             </div>
         </div>
     
+    </div>
+
+    <div id="aboutme-tab-bp" style="display: none;">
+        <div class="tab" id="aboutme-tab">
+            <img src="img/about.png" alt="">
+            <span>About Me</span>
+        </div>
+    </div>
+
+    <div id="skills-tab-bp" style="display: none;">
+        <div class="tab" id="skills-tab">
+            <img src="img/notepad.png" alt="">
+            <span>Skills</span>
+        </div>
+    </div>
+
+    <div id="projects-tab-bp" style="display: none;">
+        <div class="tab" id="projects-tab">
+            <img src="img/folder.png" alt="">
+            <span>Projects</span>
+        </div>
     </div>
     
 
@@ -827,10 +900,26 @@
     function CloseWelcome() 
     {
         document.getElementById("start-window").remove();
+        document.getElementById("welcome-tab").remove();
     }
     function CloseWindow(elem) 
     {
         elem.parentElement.parentElement.remove();
+
+        const ElementID = elem.parentElement.parentElement.id;
+        
+        if (ElementID == "aboutme-window") 
+        {
+            document.getElementById("aboutme-tab").remove();  
+        }
+        if (ElementID == "skills-window") 
+        {
+            document.getElementById("skills-tab").remove();  
+        }
+        if (ElementID == "projects-window") 
+        {
+            document.getElementById("projects-tab").remove();  
+        }
     }
 
 
@@ -851,25 +940,34 @@
     }
     function OpenWindow(elem) 
     {
-        if (elem.children[1].innerText == "About Me")
+        if (elem.children[1].innerText == "About Me" || elem.children[1].innerText == "bout Me")
         {
             const SkillsWindowBP = document.getElementById("aboutme-bp");
             const Desktop = document.getElementById("windose");
-
-            Desktop.innerHTML += SkillsWindowBP.innerHTML;
+            const Tabs = document.getElementById("tabs");
+            const TabBP = document.getElementById("aboutme-tab-bp");
+            
+            Tabs.innerHTML += TabBP.innerHTML; 
+            Desktop.innerHTML += SkillsWindowBP.innerHTML; 
         }
-        if (elem.children[1].innerText == "Skills")
+        if (elem.children[1].innerText == "Skills" || elem.children[1].innerText == "kills")
         {
             const SkillsWindowBP = document.getElementById("skills-bp");
             const Desktop = document.getElementById("windose");
+            const Tabs = document.getElementById("tabs");
+            const TabBP = document.getElementById("skills-tab-bp");
 
+            Tabs.innerHTML += TabBP.innerHTML; 
             Desktop.innerHTML += SkillsWindowBP.innerHTML;
         }
-        if (elem.children[1].innerText == "Projects")
+        if (elem.children[1].innerText == "Projects" || elem.children[1].innerText == "rojects")
         {
             const SkillsWindowBP = document.getElementById("projects-bp");
             const Desktop = document.getElementById("windose");
+            const Tabs = document.getElementById("tabs");
+            const TabBP = document.getElementById("projects-tab-bp");
 
+            Tabs.innerHTML += TabBP.innerHTML;
             Desktop.innerHTML += SkillsWindowBP.innerHTML;
         }
         if (elem.children[1].innerText == "Github")
@@ -877,11 +975,6 @@
             window.open("https://github.com/pouriaafshari", "_blank");
         }
     }
-
-    function MouseMove(event) {
-        console.log(event.clientX);
-    }
-
 
     // Move Window Function
 
@@ -897,20 +990,22 @@
         CanMove = 1;
         WindowElement = elem;
     }
-    function DontMoveWindow() {
-        //CanMove = 0;
-    }
 
-    document.body.onmousedown = function()
-    { 
-        const matrix = new DOMMatrixReadOnly(window.getComputedStyle(WindowElement.parentElement).transform);
-        CurrentX = matrix.m41;
-        CurrentY = matrix.m42;
+    document.body.addEventListener('mousedown', (e) => {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target.classList.contains('window-header')) 
+        {
+            const matrix = new DOMMatrixReadOnly(window.getComputedStyle(WindowElement.parentElement).transform);
+            CurrentX = matrix.m41;
+            CurrentY = matrix.m42;
 
-        mouseDown = 1;
-        FirstMousePosX = (event).clientX;
-        FirstMousePosY = (event).clientY;
-    }
+            mouseDown = 1;
+            FirstMousePosX = (event).clientX;
+            FirstMousePosY = (event).clientY;
+        }
+    }, true);
+
     document.body.onmouseup = function() 
     {
         mouseDown = 0;
@@ -928,16 +1023,9 @@
         }
     }
 
-
-    function ProjectSelect(elem) 
-    {
-        //elem.classList.add('project-select');
-    }
-
     document.body.addEventListener('click', (e) => {
         e = e || window.event;
-        var target = e.target || e.srcElement,
-        text = target.textContent || target.innerText;
+        var target = e.target || e.srcElement;
         if (!target.classList.contains('start-button-window-trigger')) 
         {
             document.getElementById('start-button').classList.remove('start-button-open');
@@ -952,6 +1040,13 @@
             document.getElementById('start-button-window').style.display = 'inline';
         }, 20);
     }
+
+    function MoveToTop(elem) 
+    {
+        var Parent = elem.parentElement;
+        Parent.insertBefore(elem, Parent.lastChild);
+    }
+
 </script>
 
 
