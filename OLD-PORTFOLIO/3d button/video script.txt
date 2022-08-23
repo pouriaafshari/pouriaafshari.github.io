@@ -1,0 +1,18 @@
+do you whant to make cool UI but don't know how? today is your lucky day. 
+cuz today im going to teach you how to make this cool 3d button only with HTML and CSS. so if you'r intrested, contineu watching this video.
+
+konichiva minasai !!!. welcome back to my channel, before starting the video, if you intresten in programming and computers subscribe to my channel and ring the bell icon so you wont miss any new video.
+
+alright, a whail ago i noticed this cool effects in twitch. so today we are going to make our own cool effects.
+
+first things first, make a HTML file.
+ 
+then im going to make a button, using button tag, and lets give it an id, so we can easily have access to it from our css file. but for this video im going to write it in style tag to keep it as one HTML file in my collection.
+
+pro tips: make a collection file and save every cool thing you learn in there and it will help you a lot in future, trust me.
+
+so, after making my button, we'r done with our html. then im going to give it a simple box shdow in CSS. ofcours on hover and with transaction, so it will look much nicer.
+
+o
+
+ 

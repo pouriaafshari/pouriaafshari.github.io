@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>TWICE LINKS</title>
+
+    <style>
+        body{
+            width: 100%;
+            /*overflow-x: hidden;*/
+            background-color: black;
+            background-size: 100%;
+            background-position: top;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: newfont;
+            text-align: center;
+            color: rgb(129, 72, 131);
+            cursor: default;
+            overflow-x: hidden;
+        }
+        #loading{
+            background-color: rgb(43, 29, 44);
+            z-index: 5;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            border: 0;
+            padding: 0;
+            transition: 0.5s;
+        }
+        @keyframes fadeout {
+            from{opacity: 1;}
+            to{opacity: 0;}
+        }
+        h1{
+            opacity: 1;
+            font-size: 50px;
+            font-weight: 500;
+            position: relative;
+            opacity: 0.7;
+            margin: 0;
+            margin-top: 15px;
+            font-family: twice;
+        }
+        h1::selection{
+            color: inherit;
+        }
+        h2{
+            margin-bottom: 20px;
+            margin-top: 8px;
+            opacity: 0.7;
+            letter-spacing: 5px;
+            font-family: twice;
+        }
+        h2::selection{
+            color: inherit;
+        }
+        @font-face {
+            font-family: twice;
+            src: url("antipasto.thin.ttf");
+        }
+        @font-face {
+            font-family: newfont;
+            src: url("watchword-demo.thin-demo.otf");
+        }
+
+        .button {
+            width: 80%;
+            height: fit-content;
+            border-style: solid;
+            border-color: rgba(180, 57, 180, 0.315);
+            background-color:transparent;
+            border-width: 2px;
+            font-size: 35px;
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+            margin-top: 90px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        a::selection{
+            color: inherit;
+        }
+        .video{
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%,-50%,0);
+            height: 100%;
+            width: 177.77777778vh;
+            width: calc(var(--vh, 1vh) * 177.77777778);
+            min-width: 100%;
+            min-height: 56.25vw;
+        }
+        .space-bg {
+            background-size: cover;
+            background-position: center;
+            filter: blur(13px);
+            opacity: 0.25;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .space-bg {
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            background-color: rgba(223, 65, 209, 0.349);
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+        }
+        #errorlog{
+            position: fixed;
+            z-index: 5;
+            right: 0;
+            left: 0;
+            top: -80px;
+            margin: auto;
+            width: 90%;
+            background-color: rgb(105, 46, 97);
+            border-radius: 0 0 5px 5px;
+            color: rgb(231, 135, 226);
+            padding: 0;
+            padding-top: 20px;
+            padding-bottom: 15px;
+            font-size: 25px;
+        }
+        #errorx{
+            width: 60px;
+            height: 38px;
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            top: 0;
+            padding-top: 20px;
+            font-weight: 900;
+            z-index: 6;
+        }
+        @keyframes errorin {
+            from{top: -80px;}
+            to{top: 0;}
+        }
+        @keyframes errorout {
+            from{top: 0;}
+            to{top: -80px;}
+        }
+        @keyframes removeitem {
+            50%{opacity: 0; font-size: 0;}
+            100%{opacity: 0; height: 0; padding: 0; margin-top: 0; margin-bottom: 0; font-size: 0;}
+        }
+        @keyframes itemout {
+            from{opacity: 1;}
+            to{opacity: 0;}
+        }
+        @keyframes itemin {
+            from{opacity: 0;}
+            to{opacity: 1;}
+        }
+        #name{
+            text-align: center;
+            font-family: newfont;
+            background: none;
+            border: 2px dashed rgba(110, 69, 98, 0.562);
+            color: rgba(126, 71, 126, 0.534);
+            font-size: 40px;
+            margin: 0;
+            font-weight: 200;
+            margin-top: 15px;
+            text-shadow: 0 2px 30px rgb(102, 52, 98),
+                         0 -2px 30px rgb(102, 52, 98),
+                         2px 0 30px rgb(102, 52, 98),
+                         -2px 0 30px rgb(102, 52, 98);
+        }
+        #addlink{
+            border-style: dashed;
+            margin-top: 40px;
+            padding-top: 16px;
+            margin-bottom: 60px;
+        }
+        #addlink::selection{
+            display: none;
+        }
+        .edit-item{
+            width: 50px;
+            height: 42px;
+            display: inline-block;
+            position: relative;
+            padding: 5px;
+            padding-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-weight: 900;
+            transition: 0.3s;
+            opacity: 0.5;
+        }
+        .edit-item-space{
+            display: inline-block;
+            height: 42px;
+            width: 10px;
+            position: relative;
+            background-image: url("line.png");
+            background-size: cover;
+            opacity: 0.5;
+        }
+        .edit{
+            width: 90%;
+            height: 60px;
+            border-radius: 5px 5px 0 0;
+            border-width: 2px;
+            border-bottom-width: 0;
+            border-style: dashed;
+            border-color: rgb(85, 51, 83);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            top: -62px;
+            opacity: 0.8;
+            left: 5%;
+        }
+        .moveuplink{
+            background-image: url("up.png");
+            background-size: cover;
+        }
+        .movedownlink{
+            background-image: url("down.png");
+            background-size: cover;
+        }
+        .deletelink{
+            background-image: url("x.png");
+            background-size: cover;
+        }
+        #done{
+            margin-top: 20px;
+            border-width: 1px;
+            border-color: plum;
+            font-weight: 100;
+            background-color: rgba(99, 68, 99, 0.459);
+            color: plum;
+        }
+        @media only screen and (min-width: 768px) {
+            .button{
+                width: 40%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="errorlog"><div id="errorx">X</div><span id="error-m">Name can't be empty</span></div>
+
+    <h1>TWICE</h1>
+    <h2>LINKS</h2>
+
+    <input type="text" id="name" placeholder="Your name">
+
+    <ul style="list-style: none; padding: 0;" id="linkul">
+        
+    </ul>
+
+    <div class="button" id="addlink" onclick="ToDoInput()">NEW LINK</div>
+
+    <div class="button" id="done">Done</div>
+
+    <div class="space-bg">
+        <video class="video" muted="" loop="" playsinline="" autoplay>
+            <source src="BGvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <input type="text" id="code" style="display: none;" value="
+    
+
+    
+    ">
+</input>
+</body>
+<script src="app.js"></script>
+
+</html>

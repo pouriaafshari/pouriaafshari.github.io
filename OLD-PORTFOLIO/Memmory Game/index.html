@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memmory Game</title>
+
+
+    <style>
+        body
+        {
+            text-align: center;
+            background-color: rgb(61, 61, 61);
+            font-family: monospace;
+        }
+        .grid
+        {
+            width: 336px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.178);
+            border-radius: 5px;
+        }
+        .card
+        {
+            width: 100px;
+            height: 100px;
+            margin: 6px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        @keyframes In {
+            from {opacity: 0.7;}
+            to {opacity: 0;}
+        }
+        @keyframes Out {
+            from {opacity: 0;}
+            to {opacity: 0.7;}
+        }
+        .card:hover
+        {
+            opacity: 0.7;
+        }
+        h3
+        {
+            font-size: 30px;
+            color: white;
+            padding: 10px;
+            width: fit-content;
+            background-color: rgb(77, 77, 77);
+            margin: auto;
+            margin-bottom: 15px;
+        }
+        #button{
+            margin-top: 30px;
+            left: 0;
+            background-color: rgb(37, 37, 37);
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            padding: 20px 30px;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            box-shadow: -6px 6px 0 rgb(122, 122, 122);
+            transition: 0.2s;
+        }
+        #button:active{
+            box-shadow: 0 0 0 rgb(122, 122, 122);
+            margin-top: 36px;
+            left: -6px;
+        }
+        #button::before{
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: rgb(122, 122, 122);
+            z-index: -1;
+            position: absolute;
+            transform: rotateZ(45deg);
+            bottom: -4px;
+            right: 2px;
+            transition: 0.2s;
+        }
+        #button::after{
+            content: "";
+            width: 8px;
+            height: 8px;
+            color: rgb(122, 122, 122);
+            background-color: rgb(122, 122, 122);
+            z-index: -1;
+            position: absolute;
+            transform: rotateZ(45deg);
+            top: 2px;
+            left: -4px;
+            transition: 0.2s;
+        }
+        #button:active::before{
+            right: 0px;
+            bottom: 2px;
+            width: 0px;
+            height: 0px;
+        }
+        #button:active::after{
+            left: 2px;
+            top: 0px;
+            width: 0px;
+            height: 0px;
+}
+    </style>
+
+
+</head>
+<body>
+    <h3>Score: <span id="result"></span></h3>
+
+    <div class="grid"></div>
+
+    <a href="#" id="button" onclick="location.reload();">Restart</a>
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => 
+    {
+        var CardsChoosen = [];
+        var CardsChoosenID = [];
+        let CardsWon = 0;
+        let IsCheking = false;
+
+        const CardsArray = 
+        [
+            {
+                name: '1', img: 'pics/1.jpg'
+            },
+            {
+                name: '2', img: 'pics/2.jpg'
+            },
+            {
+                name: '3', img: 'pics/3.jpg'
+            },
+            {
+                name: '4', img: 'pics/4.jpg'
+            },
+            {
+                name: '5', img: 'pics/5.jpg'
+            },
+            {
+                name: '6', img: 'pics/6.jpg'
+            },
+            {
+                name: '1', img: 'pics/1.jpg'
+            },
+            {
+                name: '2', img: 'pics/2.jpg'
+            },
+            {
+                name: '3', img: 'pics/3.jpg'
+            },
+            {
+                name: '4', img: 'pics/4.jpg'
+            },
+            {
+                name: '5', img: 'pics/5.jpg'
+            },
+            {
+                name: '6', img: 'pics/6.jpg'
+            },
+        ]
+        //Shuffle Array
+        CardsArray.sort(() => 0.5 - Math.random())
+
+        //Setup Grid
+        const grid = document.querySelector('.grid');
+        const result = document.querySelector('#result');
+        result.innerHTML = CardsWon;
+
+        var CreateBoard = () => 
+        {
+            for (let i = 0; i < CardsArray.length; i++) {
+                var Card = document.createElement('img');
+                Card.setAttribute('src', 'pics/blank.jpg');
+                Card.setAttribute('data-cardNo', i.toString());
+                Card.setAttribute('class', 'card');
+                Card.addEventListener('click',FlipCard);
+                grid.appendChild(Card);
+            }
+        }
+
+        //Check for Match
+        function CheckForMatch()
+        {
+            var AllCards = document.querySelectorAll('img');
+            if (CardsChoosen[0] === CardsChoosen[1])
+            {
+                CardsWon += 2;
+                AllCards[CardsChoosenID[0]].setAttribute('src', 'pics/square.png');
+                AllCards[CardsChoosenID[1]].setAttribute('src', 'pics/square.png');
+            }
+            else
+            {
+                AllCards[CardsChoosenID[0]].setAttribute('src', 'pics/blank.jpg');
+                AllCards[CardsChoosenID[1]].setAttribute('src', 'pics/blank.jpg');
+            }
+
+            CardsChoosen = [];
+            CardsChoosenID = [];
+            result.innerHTML = CardsWon;
+            if (CardsWon == 12) alert('You Won!');
+            IsCheking = false;
+        }
+
+        //Flip Card
+        function FlipCard()
+        {
+            if (!IsCheking)
+            {
+                var CardID = this.getAttribute('data-cardNo');
+                CardsChoosen.push(CardsArray[CardID].name);
+                CardsChoosenID.push(CardID);
+                this.style.animation = 'In 0.2s 1';
+                this.addEventListener('animationend', () => {
+                    this.setAttribute('src', CardsArray[CardID].img);
+                    this.style.animation = 'Out 0.2s 1';
+                })  
+
+                if (CardsChoosen.length === 2)
+                {
+                    IsCheking = true;
+                    setTimeout(CheckForMatch, 1000);
+                }
+            }
+        }
+
+        CreateBoard();
+    })
+</script>
+
+
+</html>

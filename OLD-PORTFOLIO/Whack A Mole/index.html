@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack A Mole</title>
+
+
+    <style>
+        body{
+            background-color: rgb(0, 0, 0);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            font-family: cute;
+        }
+        #BG{
+            background-image: url("BG.jpg");
+            opacity: 0.7;
+            background-size: 500px 500px;
+            filter: blur(3px);
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            position: absolute;
+        }
+        h2{
+            font-size: 30px;
+            position: relative;
+            margin-top: 20px;
+            font-weight: 100;
+        }
+        h1{
+            font-size: 60px;
+            position: relative;
+        }
+        @font-face {
+            font-family: cute;
+            src: url("FollowYouIntotheWorld.ttf");
+        }
+        .square{
+            width: 150px;
+            height: 150px;
+            position: relative;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            margin: 3px;
+        }
+        .molang{
+            background-image: url("molang.png");
+            background-size: cover;
+            cursor: pointer;
+        }
+        #grid{
+            display: flex;
+            flex-wrap: wrap;
+            width: 480px;
+            height: fit-content;
+            justify-content: center;
+            position: relative;
+            margin: auto;
+        }
+        h3{
+            display: block;
+            position: relative;
+            padding: 10px;
+            font-size: 70px;
+            border-radius: 5px;
+            opacity: 1;
+            width: fit-content;
+            margin: auto;
+            margin-top: 40px;
+            background-color: rgba(255, 255, 255, 0.24);
+            color: rgb(243, 243, 243);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        h3:hover{
+            opacity: 0.7;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="BG"></div>
+
+    <h1>Whack A Mole</h1>
+    <h2>Score: <span id="score">0</span></h2>
+    <h2>Time: <span id="time">30</span></h2>
+
+    <div id="grid">
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square molang" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+    </div>
+
+    <h3 id="Start">Start</h3>
+</body>
+
+
+<script>
+    const Squares = document.querySelectorAll(".square");
+    const Molang = document.querySelectorAll(".molang");
+    const TimeLeft = document.querySelector("#time");
+    let ScoreText = document.querySelector("#score");
+
+    let Score = 0;
+    let CurrentTime = 30;
+    let HitBox;
+    let PlayMode = 0;
+    let Time = null;
+
+    function ChooseRandomSquare() {
+        Squares.forEach( (Item) => {
+            Item.classList.remove('molang');
+        });
+
+        let RandomIndex = Math.floor(Math.random() * 9);
+        Squares[RandomIndex].classList.add('molang');
+        HitBox = Squares[RandomIndex].id;
+    }
+
+    Squares.forEach((Item) => {
+        Item.addEventListener('mouseup', () => {
+            if (Item.id == HitBox) {
+                Score++;
+                ScoreText.innerHTML = Score;
+                Item.classList.remove('molang');
+                HitBox = null;
+            }
+        })
+    })
+
+    function TimeManager() {
+        if (PlayMode == 0) {
+            PlayMode = 1;
+        }
+        CurrentTime--;
+        TimeLeft.innerHTML = CurrentTime;
+
+        ChooseRandomSquare();
+
+        if (CurrentTime == 0) {
+            clearInterval(Time);
+            alert("Time's Up!");
+
+            HitBox = null;
+            Squares.forEach( (Item) => {
+                Item.classList.remove('molang');
+            });
+
+            var ResetButton = document.createElement('h3');
+            ResetButton.innerText = "Restart";
+            ResetButton.addEventListener('click', () => {location.reload()});
+            document.body.appendChild(ResetButton);
+        }  
+    }
+
+    document.querySelector("#Start").addEventListener('click', () => {
+        Time = setInterval(TimeManager, 1000);
+        document.querySelector("#Start").remove();
+    })
+    
+
+</script>
+
+
+</html>
