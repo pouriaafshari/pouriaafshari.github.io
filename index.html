@@ -15,6 +15,7 @@
             if (window.innerWidth < 768) 
             {
                 /*window.location.href = "https://pouriaafshari.github.io/OLD-PORTFOLIO";*/
+                alert("Mobile version is not done yet ... I'll finish it soon");
             }
         })
     </script>
@@ -672,8 +673,6 @@
 
     <div id="windose" style="display: none;">
 
-        <a href="https://pouriaafshari.github.io/OLD-PORTFOLIO/" target="_self"><button style="padding: 5px; margin-top: 5px; right: 10px; font-size: 20px; position: absolute; width: 200px;">Show Normal Portfolio</button></a>    
-
         <div id="start-window" onclick="MoveToTop(this)">
             <div class="window-header" onmouseenter="MoveWindow(this)">
                 <h3>Welcome</h3>
@@ -901,15 +900,23 @@
         const time_text = document.getElementById('time-text');
         var text = "";
 
-        text = now.getHours().toString() + ':' + now.getMinutes().toString();
+        
         if (now.getHours() > 12) 
         {
-            text = (now.getHours()-12).toString() + ':' + now.getMinutes().toString();
+            if ((now.getHours()-12) < 10) { text = '0' + (now.getHours()-12).toString(); }
+            else { text = (now.getHours()-12).toString(); }
+            text += ':';
+            if (now.getMinutes() < 10) { text += '0' + now.getMinutes().toString(); }
+            else { text += now.getMinutes().toString(); }
             text += " PM";
         }
         else
         {
-            text = now.getHours().toString() + ':' + now.getMinutes().toString();
+            if (now.getHours() < 10) { text = '0' + now.getHours().toString(); }
+            else { text = now.getHours().toString(); }
+            text += ':';
+            if (now.getMinutes() < 10) { text += '0' + now.getMinutes().toString(); }
+            else { text += now.getMinutes().toString(); }
             text += " AM";
         }
 
