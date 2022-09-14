@@ -746,7 +746,7 @@
                 <p>Projects</p>
             </div>
 
-            <div class="icon" onclick="HighlightIcon(this)" ondblclick="() => {window.open('img/resume.pdf','_blank')}">
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
                 <img src="img/resume.png">
                 <p>Resume (PDF)</p>
             </div>
@@ -1002,6 +1002,10 @@
         if (elem.children[1].innerText == "Github")
         {
             window.open("https://github.com/pouriaafshari", "_blank");
+        }
+        if (elem.children[1].innerText == "Resume (PDF)")
+        {
+            window.open("https://pouriaafshari.github.io/img/resume.pdf", "_blank");
         }
     }
 
