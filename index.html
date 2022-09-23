@@ -334,19 +334,19 @@
             background-color: rgb(13, 40, 156);
             filter: contrast(0.6) brightness(0.8);
         }
-        .project span
+        .prcomment
         {
-            display: inline-block;
-            height: 100%;
-            width: 100%;
-            margin: 5px;
+            width: 65%;
+            height: 150px;
+            margin: 2px;
         }
-        .project img
+        .prpic
         {
-            width: auto;
-            height: auto;
-            position: relative;
-            margin: 5px;
+            width: 35%;
+            height: 100%;
+            z-index: 10;
+            background-position: center;
+            background-size: cover;
         }
         .projects-footer
         {
@@ -755,6 +755,11 @@
                 <img src="img/github.png">
                 <p>Github</p>
             </div>
+
+            <div class="icon" onclick="HighlightIcon(this)" ondblclick="OpenWindow(this)">
+                <img src="img/linkedin_pixel_logo_icon_181925.png">
+                <p>Linkedin</p>
+            </div>
         </div>
     </div>
 
@@ -804,17 +809,19 @@
     
             <div id="projects-body">
                 <a class="project" href="https://pouriaafshari.github.io/Hair-Physics-JS/" target="_blank">
-                    <span>Hair Physics<br><br>I wanted to make a Pixel art game for browser, this was my experiment to make game look smoother.</span>
-                    <img src="img/HairPhysics.png">
+                    <div class="prcomment">Hair Physics<br><br>I wanted to make a Pixel art game for browser, this was my experiment to make game look smoother.
+                    </div>
+                    <div class="prpic" style="background-image: url('img/HairPhysics.png');"></div>
                 </a>
 
                 <a class="project" href="https://pouriaafshari.github.io/MemoryGame/" target="_blank">
-                    <span>Memory Game<br><br>This is one of my first JavaScript projects.</span>
-                    <img src="img/MemmoryGame.png">
+                    <div class="prcomment">Memory Game<br><br>This is one of my first JavaScript projects.
+                    </div>
+                    <div class="prpic" style="background-image: url('./img/MemmoryGame.png');"></div>
                 </a>
             </div>
         
-            <div class="projects-footer">2 items</div>
+            <div class="projects-footer">2 items &nbsp;&nbsp; | &nbsp;&nbsp; All source codes are on Github</div>
         </div>
     
     </div>
@@ -955,7 +962,7 @@
     // Open window (Icon function)
 
     function RemoveHighlights() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             document.getElementById('desktop').getElementsByTagName('div')[i].classList.remove('highlight-icon');       
         }
     }
@@ -1006,6 +1013,10 @@
         if (elem.children[1].innerText == "Resume (PDF)")
         {
             window.open("https://pouriaafshari.github.io/img/resume.pdf", "_blank");
+        }
+        if (elem.children[1].innerText == "Linkedin")
+        {
+            window.open("https://www.linkedin.com/in/pooriya-afshari/", "_blank");
         }
     }
 
