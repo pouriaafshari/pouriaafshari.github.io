@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Job Search Journey 💼✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '🌟';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 2em;
+            animation: twinkle 2s infinite;
+        }
+
+        .header::after {
+            content: '🎯';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            animation: twinkle 2s infinite 1s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .todo-item:hover {
+            background: #e8f0ff;
+            transform: translateX(5px);
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2px;
+        }
+
+        .checkbox.checked {
+            background: #667eea;
+            border-color: #667eea;
+        }
+
+        .checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+
+        .todo-text {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .todo-text.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: white;
+        }
+
+        .link-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .link-card p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .motivation-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            color: #2d3436;
+        }
+
+        .motivation-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Your Job Search Journey</h1>
+            <div class="subtitle">Social Work & Art Therapy Career Guide</div>
+            <div style="margin-top: 10px; font-size: 0.9em;">From Hungary to Europe with Love 💕</div>
+        </div>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% Complete - Let's start your journey!</div>
+
+            <div class="section">
+                <h2><span class="emoji">📝</span>Preparation Phase</h2>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Update your CV/Resume</strong><br>
+                        Tailor it for European social work positions, highlighting your healthcare and art therapy interests
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Write a compelling cover letter template</strong><br>
+                        Create a base version you can customize for each application
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Gather references</strong><br>
+                        Contact professors, supervisors, and colleagues who can speak to your skills
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Create a portfolio</strong><br>
+                        Showcase any art therapy projects, case studies (anonymized), or relevant work
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🔍</span>Research & Applications</h2>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Research European work visa requirements</strong><br>
+                        Check what you need as an Iranian citizen graduating from Hungary
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Look into professional recognition</strong><br>
+                        Check if your Hungarian social work degree needs validation in other EU countries
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Join professional networks</strong><br>
+                        Connect with social workers and art therapists on LinkedIn and professional associations
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Apply to 5 positions this week</strong><br>
+                        Set a weekly goal to maintain momentum in your job search
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">💼</span>Job Search Resources</h2>
+                <div class="links-grid">
+                    <a href="https://www.linkedin.com/jobs/" target="_blank" class="link-card">
+                        <h3>🔗 LinkedIn Jobs</h3>
+                        <p>The best platform for professional networking and job searching across Europe</p>
+                    </a>
+                    <a href="https://www.euraxess.ec.europa.eu/jobs" target="_blank" class="link-card">
+                        <h3>🇪🇺 EURAXESS</h3>
+                        <p>EU's official job portal with opportunities across all European countries</p>
+                    </a>
+                    <a href="https://www.indeed.com/" target="_blank" class="link-card">
+                        <h3>🔍 Indeed Europe</h3>
+                        <p>Search for social work and healthcare positions across European countries</p>
+                    </a>
+                    <a href="https://www.glassdoor.com/" target="_blank" class="link-card">
+                        <h3>💰 Glassdoor</h3>
+                        <p>Research salaries, company reviews, and interview experiences</p>
+                    </a>
+                    <a href="https://www.stepstone.com/" target="_blank" class="link-card">
+                        <h3>🪜 StepStone</h3>
+                        <p>Major European job board with excellent healthcare and social work sections</p>
+                    </a>
+                    <a href="https://www.monster.com/" target="_blank" class="link-card">
+                        <h3>👹 Monster</h3>
+                        <p>International job search engine with strong European presence</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🎨</span>Art Therapy Specific Resources</h2>
+                <div class="links-grid">
+                    <a href="https://www.baat.org/" target="_blank" class="link-card">
+                        <h3>🎨 BAAT (UK)</h3>
+                        <p>British Association of Art Therapists - great for UK opportunities</p>
+                    </a>
+                    <a href="https://www.arttherapyalliance.org/" target="_blank" class="link-card">
+                        <h3>🌍 Art Therapy Alliance</h3>
+                        <p>International network of art therapy professionals and job postings</p>
+                    </a>
+                    <a href="https://www.ecarte.info/" target="_blank" class="link-card">
+                        <h3>🇪🇺 ECArTE</h3>
+                        <p>European Consortium for Arts Therapies Education</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🏥</span>Healthcare Social Work</h2>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Research hospital networks in target countries</strong><br>
+                        Look into major healthcare systems that employ social workers
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Contact international health organizations</strong><br>
+                        WHO, Red Cross, and other NGOs often need social workers
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Look into mental health clinics</strong><br>
+                        Your art therapy interest makes you perfect for mental health settings
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🌟</span>Professional Development</h2>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Take an online course</strong><br>
+                        Consider courses in European social work practices or art therapy techniques
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Attend virtual conferences</strong><br>
+                        Network with professionals and stay updated on field developments
+                    </div>
+                </div>
+                <div class="todo-item" onclick="toggleTodo(this)">
+                    <div class="checkbox"></div>
+                    <div class="todo-text">
+                        <strong>Practice interview skills</strong><br>
+                        Prepare for common social work interview questions and scenarios
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivation-box">
+                <h3>✨ You've Got This! ✨</h3>
+                <p>Your unique background as an Iranian student in Hungary, combined with your passion for social work and art therapy, makes you a valuable candidate. Every application brings you closer to your dream job in Europe! 🌈</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let completedTasks = 0;
+        const totalTasks = document.querySelectorAll('.todo-item').length;
+
+        function toggleTodo(item) {
+            const checkbox = item.querySelector('.checkbox');
+            const text = item.querySelector('.todo-text');
+            
+            if (checkbox.classList.contains('checked')) {
+                checkbox.classList.remove('checked');
+                text.classList.remove('completed');
+                completedTasks--;
+            } else {
+                checkbox.classList.add('checked');
+                text.classList.add('completed');
+                completedTasks++;
+                
+                // Add a little celebration animation
+                item.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 200);
+            }
+            
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            progressBar.style.width = percentage + '%';
+            
+            if (percentage === 0) {
+                progressText.textContent = "0% Complete - Let's start your journey! 🚀";
+            } else if (percentage < 25) {
+                progressText.textContent = `${percentage}% Complete - Great start! Keep going! 💪`;
+            } else if (percentage < 50) {
+                progressText.textContent = `${percentage}% Complete - You're making progress! 🌟`;
+            } else if (percentage < 75) {
+                progressText.textContent = `${percentage}% Complete - Halfway there! Amazing! 🎯`;
+            } else if (percentage < 100) {
+                progressText.textContent = `${percentage}% Complete - Almost done! So proud! 🏆`;
+            } else {
+                progressText.textContent = "100% Complete - You're ready to conquer Europe! 🎉";
+            }
+        }
+
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>
